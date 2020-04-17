@@ -1,0 +1,70 @@
+
+
+// Background and Base Mixins
+@mixin FlexBoxBasic($direction:row, $wrap:nowrap,$justify:center,$items:center,$content:center){
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items:$items;
+  align-content: $content
+
+}
+
+
+@mixin FullHeightWidth ($color:white){
+    height: 100vh;
+    width: 100vw;
+    background-color: $color; 
+}
+
+
+@mixin BackgroundImages(){
+  background-position:  center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// BG Color Margin and padding
+@mixin BMP($BG,$M,$P) {
+  background-color: $BG;
+  margin:$M;
+  padding: $P;
+} 
+
+
+//BreakPoints 
+ @mixin BreakPoints(){
+    @media only screen  and (min-width : 1824px) { width: $breakPointXXl;}
+    @media only screen  and (min-width : 1824px) { width: $breakPointXXl;}
+    @media only screen and (min-width : 1200px)  { width: $breakPointXl;} 
+    @media only screen and (min-width : 1024px) and (max-width : 1200px) { width: $breakPointl;}
+    @media only screen and (min-width : 992px) and (max-width : 1024px) { width: $breakPointXM;}
+    @media only screen  and (min-width : 768px) and (max-width : 992px) { width: $breakPointM;}
+    @media only screen and (min-width : 576px) and (max-width : 768px) {width: $breakPointSM;}
+    @media only screen and (min-width : 480px) and (max-width : 576px) {width: $breakPointXSM;}
+    @media only screen and (min-width : 320px) and (max-width : 480px) {width: $breakPointXXSM;}
+    @media only screen and (max-width : 320px) {width: $breakPointXXSM;}
+}
+
+
+// Font and copy styles
+@mixin FONT($size,$line,$weight,$margin) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line;
+  margin:$margin;
+} 
+
+
+// Style a Button
+@mixin BTN($color,$bg,$border) {
+    color:$color;
+    background-color:$bg;
+    border-color: $border;
+  } 
+
+  @mixin ROTATEBTN($deg) {
+    transform: rotate($deg);
+  } 
+  

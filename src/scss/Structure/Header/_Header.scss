@@ -1,0 +1,25 @@
+#Header{
+
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height:$HeaderHeight;
+
+
+    @import "./BackgroundImageContainer";
+
+   .FlexHeader{
+        height:$HeaderHeight;
+        position: relative;
+        @include FlexBoxBasic( $direction:column ,$justify:space-between);
+        //TopBanner
+        @import "./Sponsor_Top";
+
+        // Main Titles
+        @import "./MainTitle";
+        
+        @media only screen and  (max-width : 576px) { height:$headerHeightSmall;  }
+   }
+  
+   @media only screen and  (max-width : 576px) { height:$headerHeightSmall;  }
+}

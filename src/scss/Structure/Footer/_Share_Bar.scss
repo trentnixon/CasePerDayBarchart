@@ -1,0 +1,63 @@
+
+    #ShareMe{ 
+        background-color: $Color3;
+        color: $Color2;
+        border-radius: 8px;
+        padding: 5px 10px;
+        border:2px solid $Color2;
+        display: inline-block;
+
+        h3{
+            font-size: 1em;
+            font-weight: 100;
+            display: inline-block;
+            line-height: 2em;
+            margin: 0 10px 0 0;
+            color: $Color2;
+            font-family: $FontFamilyBody;
+        }
+
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            float: right;
+
+            li{
+                margin: 0 2px;
+                cursor: pointer;
+
+                svg{ 
+                    background-color: transparent !important;
+                       path{ fill:$Color2;}
+                    } 
+                circle,rect{
+                    fill:$Color3;
+                    
+                }
+            }
+        }
+    }
+
+
+/* Smartphones (portrait and landscape) ----------- */
+/* Large Phones ----------- */
+@media only screen and (min-width : 576px) and (max-width : 768px) {
+   
+}
+
+/* Medium Phones ----------- */
+@media only screen and (min-width : 480px) and (max-width : 576px) {
+   
+}
+
+/* Small Phones ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    
+}
+    
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+   
+}

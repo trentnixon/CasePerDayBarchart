@@ -1,0 +1,36 @@
+#TopBar{
+    @include FlexBoxBasic( $direction:row, $justify:space-between);
+    width: 100vw;
+    background-color: rgba(0,0,0,.8);
+    height: max-content;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color:$Color1;
+    z-index: 50;
+
+    div{
+        padding:  0 2%;
+        flex-basis: 50%;
+            a{
+                color: $Color3;
+            }
+    }
+
+    div.ClientDetails{
+            @include FlexBoxBasic( $direction:row, $justify:flex-end);
+            img{ 
+                    width: $LogoSize; 
+                    margin: 0 10px;
+            }
+            span{
+                font-size: $SpanSize;
+            }
+    }
+
+    @media only screen  and (min-width : 1200px) {}
+    @media only screen  and (min-width : 990px) and (max-width : 1024px) {}
+    @media only screen  and (max-width : 568px) {
+        @include FlexBoxBasic( $direction:column, $items:flex-start);
+        div{ flex-basis: 100%;}
+    }
+}

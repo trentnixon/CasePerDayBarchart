@@ -1,0 +1,11 @@
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    
+    #Glabs #Header .FlexHeader #MainTitle{ position:  relative;}
+    #Glabs #Header .FlexHeader #MainTitle .SponserTab{ right: 0; width: unset;}
+    #Glabs #Header #BG_Image_Container #BG_Image{ background-position:  center;}
+}
+
+@supports (-ms-accelerator:true) {
+    /* IE Edge 12+ CSS styles go here */ 
+  }
+ 

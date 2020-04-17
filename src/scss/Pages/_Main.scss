@@ -1,0 +1,24 @@
+/*
+    // Glabs Container
+    @include BMP($PrimaryColor,0%,0%) ;
+ 
+    // Global Page Elements 
+    // EG: btns, links, etc. Things that wont be affected by Device size and width.
+    @import "../components/Btns/_btns.scss"; 
+    @import "../reset/_typography.scss";
+
+    // Media Queries
+    // Global Page Styles
+    @import "../mediaqueries/_Golbal.scss";
+    // Mobile
+    @import "../mediaqueries/_Mobile.scss";
+    // Tablet
+    @import "../mediaqueries/_Tablet.scss";
+    // Desktop
+    @import "../mediaqueries/_Desktop.scss";
+*/ 
+
+@import "../Structure/Header/Header";
+@import "../Structure/Body/BodyCopy";
+@import "../Structure/Body/SocialMediaIcons";
+@import "../Structure/Footer/Footer";

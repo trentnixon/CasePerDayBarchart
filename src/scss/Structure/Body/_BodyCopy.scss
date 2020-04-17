@@ -1,0 +1,10 @@
+.GlabsContainer{
+    @include FlexBoxBasic( $direction:column ,$justify:center,$items:center,$content:flex-start);
+   
+    .ResponsiveContainer{
+       // @include BreakPoints;
+
+       
+        
+    } 
+}

@@ -1,0 +1,78 @@
+/******************************************* */
+    // Typography
+
+    $FontFamilyHeader:"TS3 Text Sans";
+    $FontFamilyHeaderBold:"Guardian Headline Bold";
+    $FontFamilyHeaderRegular:"Guardian Headline Regular";
+    $FontFamilyBody:"TS3 Text Sans"; 
+    $HeaderFont:"Guardian Titlepiece";
+    
+    $standfirst: 1.125rem;
+    $PCTA: 1.25rem;
+    /************************* */
+    // Large Screen 
+    $Font-Size-LargeScreen: (
+        h1 : 3.125rem,
+        h2 : 2.5rem,
+        p : 1rem,
+        a : 1.15rem,
+        blockquote: 1.5rem
+    );
+    $Font-LineHeight-LargeScreen: (
+        h1 : 3.7rem,
+        h2 : 2.4.5rem,
+        p : 1.5rem,
+        blockquote: 1.5rem
+    );
+    $Font-Weigth-LargeScreen: (
+        h1 : bold,
+        h2 : bold,
+        p : 100,
+        blockquote: bold,
+        a:bold
+    );
+
+    /************************* */
+    // Medium Devices 
+    $Font-Size-MediumScreen: (
+        h1 : 3.125rem,
+        h2 : 1.2rem,
+        p : 1rem,
+        blockquote: 1.3rem
+    );
+    $Font-LineHeight-MediumScreen: (
+        h1 : 1.5rem,
+        h2 : 1.5rem,
+        p : 1.2rem,
+        a : 1.2rem,
+        blockquote: 1.3rem
+    );
+    $Font-Weigth-MediumScreen: (
+        h1 : bold,
+        h2 : bold,
+        p : 100,
+        blockquote: bold
+    );
+
+    /************************* */
+    // Small Screens/ Mobiles
+    $Font-Size-SmallScreen: (
+            h1 : 2.35rem,
+            h2 : 1.2rem,
+            p : 1rem,
+            a : 1rem,
+            blockquote: 1.1rem
+        );
+    $Font-LineHeight-SmallScreen: (
+            h1 : 2.5rem,
+            h2 : 1.2rem,
+            p : 1.2rem,
+            blockquote: 1.1rem
+        );
+    $Font-Weigth-SmallScreen: (
+            h1 : bold,
+            h2 : bold,
+            p : 100,
+            blockquote: bold
+        );
+    /************************* */

@@ -1,0 +1,70 @@
+#PartnerZone{
+    
+    .ReadMore{ 
+            font-weight: 100;
+            transition: all .4s ease-in;
+            color: $Color2;
+            line-height: 1.3em;
+            display: inline-block; 
+            margin: 8px 0;
+
+            strong{
+                font-weight: 800;
+            }
+    }
+    .ReadMore:hover{
+        text-decoration: none;
+    }
+
+    .chevron.right:before {
+        display: none;
+        left: 0;
+        transform: rotate(45deg);
+    }
+
+    .chevron.bottom:before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    .chevron.left:before {
+        left: 0.25em;
+        transform: rotate(-135deg);
+    }
+
+    .chevron::before {
+        border-style: solid;
+        border-width: 0.15em 0.15em 0 0;
+        content: '';
+        display: inline-block;
+        height: 0.45em;
+        left: 0.15em;
+        position: relative;
+        top: 1.1em;
+        transform: rotate(-45deg);
+        vertical-align: top;
+        width: 0.45em;
+    }
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+/* Large Phones ----------- */
+@media only screen and (min-width : 576px) and (max-width : 768px) {
+   
+}
+
+/* Medium Phones ----------- */
+@media only screen and (min-width : 480px) and (max-width : 576px) {
+   
+}
+
+/* Small Phones ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    
+}
+    
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+   
+}

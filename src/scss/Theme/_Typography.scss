@@ -1,0 +1,123 @@
+
+// Grouped Styles
+h1,h2,h3{ margin: 0 0 1rem 0; font-family: $FontFamilyHeader;}
+p,span,a,blockquote { font-family: $FontFamilyBody; }
+
+#Top{
+    .BodyCopy{
+        padding: 0 25% 0 0;
+        position: relative; 
+
+
+        .ClientDetails{
+            position: absolute;
+            top:0;
+            right: 0;
+            border-top:1px dotted #DCDCDC; 
+            border-bottom: 1px dotted #DCDCDC;
+            padding: 5px 0 15px;
+            width: 15%;
+            span{
+                font-size: .8rem;
+                width: 100%;
+                display: inline-block;
+                margin: 0 0 10px 0;
+            }
+            img{
+              width: 100%;
+            }
+            @media only screen  and (min-width : 1024px) {
+                width: 12%;
+            }
+            @media only screen  and (min-width : 990px) and (max-width:1024){
+                width: 15%;
+            }
+            @media only screen  and (max-width : 768px) {
+               position: relative;
+               width: 100%;
+               margin: 10px 0;
+               img{ width: auto;}
+            }
+          }
+
+    }
+    @media only screen  and (max-width : 768px) {
+        .BodyCopy{
+            padding: 0 3% 0 0;
+        }
+    }
+}
+// Specific Type
+p.standfirst{
+    font-size: $standfirst;
+    line-height: $standfirst ;
+    margin: 0 0 20px 0;
+}
+
+#Bottom{
+    .BodyCopy{
+        border-bottom: 1px solid #9B9B9B;
+        padding: 0;
+        p{
+            font-style: italic;
+            font-weight: 800;
+            font-size: 16px;
+        }
+    }
+}
+
+p.cta{
+
+    text-align: center;
+    
+    margin: 2rem 0 0;
+    font-size: $PCTA;
+    line-height: $PCTA;
+
+    a{
+        font-weight: bold;
+        color: $Color2
+    }
+}
+
+
+
+blockquote::before{ content: open-quote; }
+blockquote::after{ content: close-quote; }
+
+
+a{ text-decoration: none; color: $Color3;} 
+a:hover{text-decoration: none;}
+
+
+@each $name, $size in $Font-Size-LargeScreen{ 
+    #{$name} { font-size: $size; }
+}
+@each $name, $size in $Font-LineHeight-LargeScreen{
+    #{$name} { line-height: $size; }
+}
+@each $name, $size in $Font-Weigth-LargeScreen{
+    #{$name} { font-weight: $size; }
+}
+
+@media only screen  and (max-width : 1024px) {
+    p.cta{
+        padding: 2rem 3rem;
+    }
+}
+
+
+@media only screen  and (max-width : 568px) {
+    @each $name, $size in $Font-Size-SmallScreen{ 
+        #{$name} { font-size: $size; }
+    }
+    @each $name, $size in $Font-LineHeight-SmallScreen{
+        #{$name} { line-height: $size; }
+    }
+    @each $name, $size in $Font-Weigth-SmallScreen{
+        #{$name} { font-weight: $size; }
+    }
+
+    p.cta{  padding: 2rem 0rem; }
+
+}

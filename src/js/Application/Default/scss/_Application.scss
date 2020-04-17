@@ -1,0 +1,168 @@
+
+/************ 
+** Application Variables
+*************/
+
+// Import Application Elements
+
+.recharts-cartesian-axis-tick {    
+    font-size: .8rem;
+    font-family: $FontFamilyBody;
+}
+
+#Application{
+    color:black; 
+    padding: 0rem;
+    margin: 0;
+
+    .headline-container{
+        padding: 1rem 0 ;
+        h3{
+            font-family: $HeaderFont;
+            font-size: 21px;
+            margin: 6px;
+        }
+        .subTitle{
+            margin: 6px;
+            font-size: 16px;
+            line-height: 20px;
+            font-family: $FontFamilyHeaderRegular;
+        }
+    }
+
+    .Controls{
+        display: flex;
+        width: 100%;
+        border-top: 2px solid #c70000;
+        padding: 1rem 0 ;
+        button{
+            background-color: #c70000;
+            border-radius: 62.5rem;
+            border: none;
+            display: inline-block;
+            outline: 0;
+            box-sizing: border-box;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 100;
+            font-family: $FontFamilyBody;
+            color: #FFF;
+            padding: 4px 10px;
+            margin: 1px 1px;
+            text-align: right;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color:#9a0505 ;            
+        }
+    }
+
+
+    .ChartContainer{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap:wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: center;
+       
+
+
+        .FullChartList {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 100%;
+            border-bottom: 1px solid #dcdcdc;
+            padding: 0px;
+            margin: 0;
+            .ChartPod{
+                
+                flex-basis: 24.5%;
+                margin: 0 0 1rem 0;
+                height: 300px;
+                h2{
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #333333;
+                    border: none;
+                    margin: 0 0 0 60px;
+                    padding: 0;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: $HeaderFont;
+                }
+                .Meter{
+                    margin-top: -10px;
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    p{  
+                        margin: 0;
+                        display: none;
+                        padding: 0;
+                        text-align: center;
+                        font-family: $FontFamilyBody;
+                        font-size: .8rem;
+                    }
+                    img{
+                        display: none;
+                        width: 80%;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    
+        @media only screen  and (min-width : 1024px) and (max-width:1200px){
+            
+        }
+
+        @media only screen  and (min-width : 768px) and (max-width:1024px){
+            .FullChartList{
+                .ChartPod{
+                    flex-basis: 49%;
+                }
+            }
+           
+        }
+        
+        @media only screen  and (max-width : 768px) {
+            .FullChartList{
+                .ChartPod{
+                    flex-basis: 49%;
+                }
+            }
+          
+        }
+        @media only screen  and (max-width : 576px) {
+            .FullChartList{
+                .ChartPod{
+                    flex-basis: 100%;
+                }
+            }
+          
+        }
+    }
+
+    .Large{
+        div{
+            flex-basis: 50%;
+        }
+    }
+   
+
+    .footer{
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #767676;
+        font-family: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    }
+}
+
+
