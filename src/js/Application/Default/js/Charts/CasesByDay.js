@@ -5,7 +5,6 @@ import Chart from "react-apexcharts";
 
 const hues = ['#90dcff','#00b2ff','#0084c6','#005689','#ff7f0f','#e05e00','#bd5318','#ff4e36','#c70000','#ab0613','#bb3b80','#7d0068']
 
-
 const BarChart = (props)=>{
   const numberWithCommas = (x) => { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
   

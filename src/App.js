@@ -18,18 +18,6 @@ import './App.css';
  */
 const Content = new FetchData();
 
-/**
- * Dev/production enviormant Variables 
- */
-
-// EDIT THESE VALUES FOR EACH PROJECT 
-//let http =null;
-//const CDN = 'https://gdn-cdn.s3.amazonaws.com/embed/2020/03/ConvidCharts/casesbydays/';
-/** End Edit  */
-
-//if(process.env.NODE_ENV === 'development'){ http = '/';}
-//else if(process.env.NODE_ENV === 'production'){ http = CDN; }
-
 // Start Fetch
 Content.start();  
 

@@ -118,9 +118,7 @@
             }
         }
     
-        @media only screen  and (min-width : 1024px) and (max-width:1200px){
-            
-        }
+        @media only screen  and (min-width : 1024px) and (max-width:1200px){}
 
         @media only screen  and (min-width : 768px) and (max-width:1024px){
             .FullChartList{
@@ -128,7 +126,6 @@
                     flex-basis: 49%;
                 }
             }
-           
         }
         
         @media only screen  and (max-width : 768px) {
@@ -137,7 +134,6 @@
                     flex-basis: 49%;
                 }
             }
-          
         }
         @media only screen  and (max-width : 576px) {
             .FullChartList{
@@ -145,7 +141,6 @@
                     flex-basis: 100%;
                 }
             }
-          
         }
     }
 

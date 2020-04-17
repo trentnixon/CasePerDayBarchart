@@ -19,7 +19,9 @@ export function FetchData(){
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_total_ecdc.json',
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily_ecdc.json',
         ]
-        // Old //
+
+
+        // Old json //
          //'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily.json',
         //'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/deaths.json',
         //'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/recovered.json',
@@ -40,7 +42,6 @@ export function FetchData(){
                 })
               
                 FilteredTotals = FilterUnwanted(FinalTotals,this.min,this.max) 
-                
                 store.dispatch({ type:"STORE_UPDATED", payload:Total.date });
                 store.dispatch({ type:"STORE_FILTERED", payload:FilteredTotals});
                 store.dispatch({ type:"STORE_FULLPICTURE", payload:createDataSet(FilteredTotals, res[1].data)});
