@@ -5,13 +5,46 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,ResponsiveContainer, T
 // eslint-disable-next-line
 import {scaleLinear, scaleLog, scaleSequentialLog} from 'd3-scale'
 import {interpolateOrRd} from 'd3-scale-chromatic'
+import * as d3 from "d3-selection"
   
-  const Color = (val, max)=>{
-
+const Color = (val, max)=>{
     let color = scaleSequentialLog(interpolateOrRd).domain([1, max.UI.SetMax])
     // let color = scaleLog().domain([1, max.UI.SetMax]).range(['#fed976','#bd0026'])
     // let color = scaleLinear().domain([1, max.UI.SetMax]).range(['#ffffb2','#bd0026'])
     return color(val);
+}
+
+const makeKey = (max) => {
+
+    // Needs to be able to select a div with id keyContainer
+
+    const keyVals = [5, 50, 500, 5000, 50000];
+    var keyWidth = document.querySelector("#keyContainer").getBoundingClientRect().width - 10
+    var keySquare = keyWidth / keyVals.length;
+    var barHeight = 15    
+    var height = 30
+
+    keySvg = d3.select("#keyContainer").append("svg")
+        .attr("width", keyWidth)
+        .attr("height", "40px")
+        .attr("id", "keySvg")
+
+    keyVals.forEach(function(d, i) {
+        keySvg.append("rect")
+            .attr("x", keySquare * i)
+            .attr("y", 0)
+            .attr("width", keySquare)
+            .attr("height", barHeight)
+            .attr("fill", Color(d, max))
+            .attr("stroke", "#dcdcdc")
+
+        keySvg.append("text")
+            .attr("x", (i) * keySquare)
+            .attr("text-anchor", "start")
+            .attr("y", height)
+            .attr("class", "keyLabel").text(d)    
+    })
+
 }
 
 const ReChartBar = (props)=>{
