@@ -16,7 +16,7 @@ const Application = (props)=>{
           <Footer />
       </div>
     </div>
-  )
+  ) 
 }
 // TODO 
 export default  Application; 

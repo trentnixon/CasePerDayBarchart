@@ -49,7 +49,7 @@ export function FetchData(){
                 store.dispatch({ type:"STORE_DATA", payload:res });
                 store.dispatch({ type:"STORE_MIN", payload:this.max });
 
-            }.bind(this))
+            }.bind(this)) 
         )
         .catch(function (error) { console.log(error); });
     }
@@ -66,7 +66,7 @@ const  FilterUnwanted = (data, Min, Max) => {
 }
 
 
-const createDataSet = (Countrys, Data) => {
+export const createDataSet = (Countrys, Data) => {
     let Cases=[];
     let FullPicture=[]
     let Categories=[]
@@ -101,9 +101,9 @@ const createDataSet = (Countrys, Data) => {
     })
 
     store.dispatch({ type:"SETMAXCASENUM", payload:Math.round(MaxCases/1000)*1000 });
-    store.dispatch({ type:"SET_MAX", payload:undefined });
-    store.dispatch({ type:"STORE_RECHART", payload:ReChartFull });
-
+    //store.dispatch({ type:"SET_MAX", payload:undefined });
+    store.dispatch({ type:"STORE_RECHART", payload:ReChartFull }); 
+ 
     //console.log(FullPicture);
 
     return FullPicture 

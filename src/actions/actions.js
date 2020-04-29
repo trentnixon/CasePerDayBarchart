@@ -1,5 +1,6 @@
-
 import store from "../store/store";
+import {createDataSet} from "./Load"
+var _ = require('lodash');
 
 function getstate(){
     return store.getState().UI.FLIPSTATE;
@@ -41,4 +42,33 @@ export function TrackOpen(i,a){
       }
 
       store.dispatch({ type:"TRACK_CARD", payload:a});  
+}
+
+
+export function OrderBySelect(Filtered, Data,By){
+
+  
+    let SelectBy=[]
+  console.log(typeof By)
+
+ switch(By) {
+  case '1':
+      // code block
+      SelectBy = _.orderBy(Filtered, [0], ['asc', 'desc']);
+   break; 
+  case '2':
+      // code block
+      SelectBy = _.orderBy(Filtered, [1], ['desc', 'asc']);
+   break;
+  case '3':
+      // code block
+      SelectBy = _.orderBy(Filtered, [1], ['asc', 'desc']);
+   break;
+
+  }
+
+  console.log(SelectBy);
+
+  store.dispatch({ type:"STORE_FILTERED", payload:SelectBy});
+  store.dispatch({ type:"STORE_FULLPICTURE", payload:createDataSet(SelectBy, Data)});
 }

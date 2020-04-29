@@ -11,13 +11,18 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "d3-scale": "^3.2.1",
     "d3-scale-chromatic": "^1.5.0",
+<<<<<<< HEAD
     "d3-selection": "^1.4.1",
+=======
+    "lodash": "^4.17.15",
+>>>>>>> 2b9cf12cd60fa1abae26adbbb2f8598a61ff849d
     "node-sass-chokidar": "^1.3.0",
     "npm-run-all": "^4.1.3",
     "react": "^16.13.1",
     "react-addons-update": "^15.6.2",
     "react-animated-css": "^1.0.4",
     "react-apexcharts": "^1.3.6",
+    "react-d3-legends": "0.0.19",
     "react-dom": "^16.4.0",
     "react-on-screen": "^2.1.1",
     "react-redux": "^7.1.0-rc.1",
