@@ -4,6 +4,7 @@ import ReChartBar from "../../Charts/RechartBar";
 
 const Rechart = (props)=>{
     const numberWithCommas = (x) => { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+   
     return(
         <div className="ChartPod">
             <h2>{props.Country} ({numberWithCommas(props.Cases)})</h2>
@@ -14,10 +15,13 @@ const Rechart = (props)=>{
 
 const ApplicationShell = (props)=>{
     
-    useEffect(()=>{console.log("Init Application layout") },[])
+    useEffect(()=>{
+        console.log("Init Application layout");
+        console.log(props);
+    },[])
 
     if(props.FullPicture !== false){
-    return(
+    return(  
             <div className="ChartContainer">
                 <div className="FullChartList">
                         {

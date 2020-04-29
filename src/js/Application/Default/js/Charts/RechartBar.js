@@ -3,13 +3,18 @@ import { useSelector, } from 'react-redux'
 // eslint-disable-next-line
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,ResponsiveContainer, Tooltip, Legend, } from 'recharts';
 // eslint-disable-next-line
-import {scaleLinear, scaleLog} from 'd3-scale'
-  
+import {scaleSequentialLog} from 'd3-scale'
+import {interpolateOrRd} from 'd3-scale-chromatic'
+
+// scaleLinear, scaleLog,
+
   const Color = (val, max)=>{
-    let color = scaleLog().domain([1, max.UI.SetMax]).range(['#ffffcc','#bd0026'])
+    let color = scaleSequentialLog(interpolateOrRd).domain([1, max.UI.SetMax])
+    //let color = scaleLog().domain([1, max.UI.SetMax]).range(['#ffffcc','#bd0026'])
     // let color = scaleLinear().domain([1, max.UI.SetMax]).range(['#ffffb2','#bd0026'])
     return color(val);
 }
+
 
 const ReChartBar = (props)=>{
     const MaxSet = useSelector(state => state.UI)
@@ -36,7 +41,7 @@ const ReChartBar = (props)=>{
                  minTickGap={10} 
      
             />
-            
+    
             <Tooltip />
            
             <Bar 
@@ -54,6 +59,9 @@ const ReChartBar = (props)=>{
                 }
             </Bar>
         </BarChart>
+
+    
+
         </ResponsiveContainer>
     )
 }

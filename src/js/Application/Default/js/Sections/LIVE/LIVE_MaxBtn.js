@@ -7,7 +7,7 @@ const MaxBtn = (props)=>{
     const dispatch = useDispatch()
     
     const handleClick=()=>{
-        let Payload=undefined;
+        let Payload=undefined; 
         if(typeof MaxSet.UI.MaxTrue === 'number')
         { 
                 Payload=undefined 
