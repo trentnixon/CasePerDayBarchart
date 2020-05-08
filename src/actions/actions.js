@@ -1,6 +1,17 @@
 import store from "../store/store";
 import {createDataSet} from "./Load"
+import {scaleSequentialLog} from 'd3-scale'
+import {interpolateOrRd} from 'd3-scale-chromatic'
+
 var _ = require('lodash');
+
+export function Color(val, max){
+  
+  let color = scaleSequentialLog(interpolateOrRd).domain([1, max])
+
+  console.log(val, max, color)
+  return color(val);
+}
 
 function getstate(){
     return store.getState().UI.FLIPSTATE;
@@ -49,7 +60,7 @@ export function OrderBySelect(Filtered, Data,By){
 
   
     let SelectBy=[]
-  console.log(typeof By)
+  //console.log(typeof By)
 
  switch(By) {
   case '1':
@@ -67,7 +78,7 @@ export function OrderBySelect(Filtered, Data,By){
 
   }
 
-  console.log(SelectBy);
+  //console.log(SelectBy);
 
   store.dispatch({ type:"STORE_FILTERED", payload:SelectBy});
   store.dispatch({ type:"STORE_FULLPICTURE", payload:createDataSet(SelectBy, Data)});

@@ -30,33 +30,90 @@
         }
     }
 
+    /* Controls */
     .Controls{
         display: flex;
         width: 100%;
         border-top: 2px solid #c70000;
-        padding: 1rem 0 ;
-        button{
-            background-color: #c70000;
-            border-radius: 62.5rem;
-            border: none;
-            display: inline-block;
-            outline: 0;
-            box-sizing: border-box;
-            font-size: 12px;
-            line-height: 16px;
-            font-weight: 100;
-            font-family: $FontFamilyBody;
-            color: #FFF;
-            padding: 4px 10px;
-            margin: 1px 1px;
-            text-align: right;
-            cursor: pointer;
+        padding: .5rem 0 ;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        //border-bottom: 1px solid #999;
+        z-index: 100;
+
+        /* Global Control Styles*/
+        div{
+            p{
+                padding: 0;
+                margin: 0;
+                font-size: .8rem;
+            }
+
+            select{
+                width: 100%;
+            }
+
+            button{
+                background-color: #c70000;
+                border-radius: 62.5rem;
+                border: none;
+                display: inline-block;
+                outline: 0;
+                box-sizing: border-box;
+                font-size: 12px;
+                line-height: 16px;
+                font-weight: 100;
+                font-family: $FontFamilyBody;
+                color: #FFF;
+                padding: 4px 10px;
+                margin: 1px 1px;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+            }
+            button:hover{
+                background-color:#9a0505 ;            
+            }
+
         }
-        button:hover{
-            background-color:#9a0505 ;            
+
+
+        // Layout
+        .sml{
+            flex-basis: 16%;
+            padding: 0 2%;
         }
+        .lrg{
+            flex-basis: 56%;
+            padding: 0 2%;
+            #keyContainer{
+                width: 100%;
+            }
+        }
+       
+        // Added this here for ease of use... 
+        @media only screen  and (max-width : 576px) {
+            flex-wrap: wrap;
+            .sml{
+                flex-basis: 40%;
+         
+                padding: 0 5%;
+            } 
+            .lrg{
+           
+                flex-basis: 90%;
+                padding: 2% 5% 0;
+            }
+        }
+       
     }
 
+
+
+
+
+    /* Chart Container ?*/
 
     .ChartContainer{
         display: flex;
@@ -140,7 +197,8 @@
                 .ChartPod{
                     flex-basis: 100%;
                 }
-            }
+                
+            }            
         }
     }
 
