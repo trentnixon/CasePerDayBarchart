@@ -91,6 +91,12 @@
                 width: 100%;
             }
         }
+
+        .sml p, .lrg p {
+            color: #767676;
+            font-size:14px;
+            font-family: 'Guardian Text Sans Web', Arial, 'Lucida Grande', sans-serif;
+        }
        
         // Added this here for ease of use... 
         @media only screen  and (max-width : 576px) {
@@ -148,7 +154,7 @@
                     margin: 0 0 0 60px;
                     padding: 0;
                     -webkit-font-smoothing: antialiased;
-                    font-family: $HeaderFont;
+                    font-family: $FontFamilyHeaderRegular;
                 }
                 .Meter{
                     margin-top: -10px;
@@ -214,6 +220,16 @@
         font-size: 12px;
         line-height: 16px;
         color: #767676;
+        font-family: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    }
+
+    .keyLabel {
+        fill: #767676;
+        font-size:12px;
+        font-family: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    }
+
+    #cars {
         font-family: 'Guardian Text Sans Web', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
     }
 }

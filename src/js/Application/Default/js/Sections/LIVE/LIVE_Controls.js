@@ -20,6 +20,8 @@ const Controls = (props)=>{
         let barHeight = 15    
         let height = 30
     
+        // d3.select("#keyContainer svg").remove()
+
         let keySvg = d3.select("#keyContainer").append("svg")
             .attr("width", keyWidth)
             .attr("height", "40px")
@@ -29,6 +31,7 @@ const Controls = (props)=>{
             keySvg.append("rect")
                 .attr("x", keySquare * i)
                 .attr("y", 0)
+                .attr("class", "keySquare")
                 .attr("width", keySquare)
                 .attr("height", barHeight)
                 .attr("fill", Color(d, max))
@@ -40,6 +43,25 @@ const Controls = (props)=>{
                 .attr("y", height)
                 .attr("class", "keyLabel").text(d)    
         })
+
+        window.addEventListener('resize', function() {
+                console.log("Resize")
+                var newWidth = document.querySelector("#Application").getBoundingClientRect().width * 0.56 - 10;
+                var newSquare = newWidth / keyVals.length;
+                    
+                d3.selectAll(".keySquare")
+                    .attr("width", newSquare)
+                    .attr("x", function(d,i) { return newSquare * i})
+
+                d3.select("#keySvg")
+                    .attr("width", newWidth)
+
+                d3.selectAll(".keyLabel")
+                    .attr("x", function(d,i) { return newSquare * i})   
+
+            })
+
+
     } 
 
     useEffect(()=>{  makeKey(MaxSet); },[MaxSet])
@@ -51,11 +73,11 @@ const Controls = (props)=>{
                     <MaxBtn setMax={props.MaxTrue} Max={props.SetMax}/>
                 </div>
                 <div className="sml">
-                    <p>Sort by :</p>
+                    <p>Sort by</p>
                     <Select/>
                </div>
                <div className="lrg">
-                    <p>Bar Key : </p>
+                    <p>Bar colour key</p>
                     <div id="keyContainer"></div>
                 </div>
                     
