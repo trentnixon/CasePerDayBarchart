@@ -808,9 +808,6 @@ h2 {
 p {
   font-size: 1rem; }
 
-a {
-  font-size: 1.15rem; }
-
 blockquote {
   font-size: 1.5rem; }
 
@@ -838,9 +835,6 @@ p {
 blockquote {
   font-weight: bold; }
 
-a {
-  font-weight: bold; }
-
 @media only screen and (max-width: 1024px) {
   p.cta {
     padding: 2rem 3rem; } }
@@ -851,8 +845,6 @@ a {
   h2 {
     font-size: 1.2rem; }
   p {
-    font-size: 1rem; }
-  a {
     font-size: 1rem; }
   blockquote {
     font-size: 1.1rem; }
@@ -1001,7 +993,7 @@ a {
       color: #767676;
       font-size: 14px;
       font-family: 'Guardian Text Sans Web', Arial, 'Lucida Grande', sans-serif; }
-    @media only screen and (max-width: 576px) {
+    @media only screen and (max-width: 800px) {
       #Application .Controls {
         flex-wrap: wrap; }
         #Application .Controls .sml {

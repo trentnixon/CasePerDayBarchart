@@ -4,6 +4,7 @@ const Header = (props)=>{
     return(
         <div className="headline-container">
                 <h3>New confirmed coronavirus cases per day</h3>
+                
                 <Updated Date={props.Date}/>
         </div>
     )
