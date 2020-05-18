@@ -10,7 +10,10 @@ const Latest = (props)=>{
   }
 
     return(
-    <div className="subTitle Updated" id="subTitle">Showing the number of new cases per day, for countries with 5,000 or more cases in total. Last updated {FormatDate(props.Date)}</div>
+    <div className="subTitle Updated" id="subTitle">
+            Showing the number of new cases per day, for countries with 5,000 or more cases in total   
+            {props.Negative.toString()}. 
+            Last updated {FormatDate(props.Date)}</div>
     )
 }
 export default Latest;

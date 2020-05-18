@@ -5,7 +5,7 @@ const Header = (props)=>{
         <div className="headline-container">
                 <h3>New confirmed coronavirus cases per day</h3>
                 
-                <Updated Date={props.Date}/>
+                <Updated Date={props.Date}  Negative={props.Negative}/>
         </div>
     )
 }

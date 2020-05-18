@@ -10,26 +10,12 @@ export function FetchData(){
     this.max=0
     this.start = () => {
  
-        // Set G-Docs Path
-       // this.Gsheet ='https://interactive.guim.co.uk/docsdata/'+GLABSJSON+'.json';
-
-        // Create Json Array 
-       // this.init=[this.Gsheet] 
         this.init=[  
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_total_ecdc.json',
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily_ecdc.json',
+            'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/negative_case_countries.json'
+
         ]
-
-
-        // Old json //
-         //'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily.json',
-        //'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/deaths.json',
-        //'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/recovered.json',
-        //'https://interactive.guim.co.uk/docsdata/1q5gdePANXci8enuiS4oHUJxcxC13d6bjMRSicakychE.json',
-        //'https://interactive.guim.co.uk/docsdata/1jy3E-hIVvbBAyUx7SY3IfUADB85mGoaR2tobYu9iifA.json'
-        // https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily_ecdc.json
-        // Fetch Json Data for build and load into Reducers
-        
         
         axios.all(this.init.map(l => axios.get(l)))
         .then(axios.spread(function (...res) {
@@ -45,6 +31,7 @@ export function FetchData(){
                 store.dispatch({ type:"STORE_UPDATED", payload:Total.date });
                 store.dispatch({ type:"STORE_FILTERED", payload:FilteredTotals});
                 store.dispatch({ type:"STORE_FULLPICTURE", payload:createDataSet(FilteredTotals, res[1].data)});
+                store.dispatch({ type:"SETNEGITIVECOUNTRY", payload:res[2].data});
                 store.dispatch({ type:"UI_SET", payload:true });
                 store.dispatch({ type:"STORE_DATA", payload:res });
                 store.dispatch({ type:"STORE_MIN", payload:this.max });

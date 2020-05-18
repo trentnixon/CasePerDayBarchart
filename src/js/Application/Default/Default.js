@@ -10,7 +10,7 @@ const Application = (props)=>{
   return(
     <div id="Application" className="GlabsContainer">
       <div className="ResponsiveContainer ChartSection">
-          <Header Date={props.Updated} />
+          <Header Date={props.Updated}  Negative={props.NegativeContries} />
           <Controls setMax={props.MaxTrue} Max={props.SetMax}/>
           <CasesByDayFullList {... props}/>
           <Footer />

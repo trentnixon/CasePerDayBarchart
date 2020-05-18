@@ -12,7 +12,6 @@ const Color = (val, max)=>{
     return color(val);
 }
 
-
 const ReChartBar = (props)=>{
     const MaxSet = useSelector(state => state.UI)
    
@@ -61,4 +60,3 @@ const ReChartBar = (props)=>{
 }
 
 export default ReChartBar;
-

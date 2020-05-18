@@ -7,6 +7,7 @@ const InitialState ={
 	Filtered:false,
 	FullPicture:false,
 	FullRechart:false,
+	NegativeContries:'',
 	Search:{
 		Min:5000,
 		Max:10000000,
@@ -71,7 +72,12 @@ const UI = (state=InitialState, action) =>{
 				break
 			}
 			
-
+			case "SETNEGITIVECOUNTRY":{
+				return {...state, NegativeContries:action.payload}
+				// eslint-disable-next-line 
+				break
+			}
+			
 			case "STORE_UI":{
 			return {...state, UI:action.payload}
 				// eslint-disable-next-line 
