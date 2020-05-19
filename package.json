@@ -2,7 +2,7 @@
   "name": "covidcharts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gdn-cdn.s3.amazonaws.com/embed/2020/03/ConvidCharts/casesbydays/",
+  "homepage": "https://gdn-cdn.s3.amazonaws.com/embed/2020/03/corona-cases-global",
   "dependencies": {
     "ajv": "^6.5.0",
     "axios": "^0.18.0",
