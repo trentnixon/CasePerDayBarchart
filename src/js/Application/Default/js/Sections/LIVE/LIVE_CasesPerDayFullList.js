@@ -8,7 +8,7 @@ const Rechart = (props)=>{
     return(
         <div className="ChartPod">
             <h2>{props.Country} ({numberWithCommas(props.Cases)})</h2>
-                <ReChartBar {... props}/>
+                <ReChartBar  {... props} /> 
         </div>
     )
 }
