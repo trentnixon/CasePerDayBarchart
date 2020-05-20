@@ -9,15 +9,13 @@ const Select = ()=>{
         console.log(e.target.value, Data.Data[1].data);
         OrderBySelect(Data.Filtered,Data.Data[1].data,e.target.value)
     }
-
-    return(
  
+    return(
                 <select onChange={onChange} id="cars">
-                    <option  value={1}>Alphabetical</option>
                     <option  value={2}>Max-Min</option>
                     <option  value={3}>Min-Max</option>
+                    <option  value={1}>Alphabetical</option>
                 </select>
-    
     )
 }
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from "../store/store";
-
+var _ = require('lodash');
 export function FetchData(){
 
     /** Set Properties */
@@ -20,7 +20,7 @@ export function FetchData(){
         axios.all(this.init.map(l => axios.get(l)))
         .then(axios.spread(function (...res) {
              
-               let FinalTotals=[], FilteredTotals=[]
+               let FinalTotals=[], FilteredTotals=[], FullPicture=[], SelectBy;
                let Total =res[0].data[res[0].data.length-1]
                Object.keys(Total).map((c,i)=>{
                         if(Total[c]>this.max){ FinalTotals.push([c,Total[c]]) } 
@@ -28,9 +28,15 @@ export function FetchData(){
                 })
               
                 FilteredTotals = FilterUnwanted(FinalTotals,this.min,this.max) 
+               
+                // change Load Order
+                // [0] = Alphbetical , [1] = by Numbers max-min
+                FilteredTotals = _.orderBy(FilteredTotals, [1], ['desc', 'asc']);
+                FullPicture = createDataSet(FilteredTotals, res[1].data)
+
                 store.dispatch({ type:"STORE_UPDATED", payload:Total.date });
                 store.dispatch({ type:"STORE_FILTERED", payload:FilteredTotals});
-                store.dispatch({ type:"STORE_FULLPICTURE", payload:createDataSet(FilteredTotals, res[1].data)});
+                store.dispatch({ type:"STORE_FULLPICTURE", payload: FullPicture} );
                 store.dispatch({ type:"SETNEGITIVECOUNTRY", payload:res[2].data});
                 store.dispatch({ type:"UI_SET", payload:true });
                 store.dispatch({ type:"STORE_DATA", payload:res });

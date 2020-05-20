@@ -58,9 +58,7 @@ export function TrackOpen(i,a){
 
 export function OrderBySelect(Filtered, Data,By){
 
-  
-    let SelectBy=[]
-  //console.log(typeof By)
+  let SelectBy=[]
 
  switch(By) {
   case '1':

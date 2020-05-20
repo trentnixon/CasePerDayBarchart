@@ -26,7 +26,7 @@ const Controls = (props)=>{
             .attr("width", keyWidth)
             .attr("height", "40px")
             .attr("id", "keySvg")
-    
+     
         keyVals.forEach(function(d, i) {
             keySvg.append("rect")
                 .attr("x", keySquare * i)
