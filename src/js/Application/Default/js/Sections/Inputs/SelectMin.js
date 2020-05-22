@@ -32,7 +32,7 @@ export default function SimpleSelect() {
           <MenuItem value={1000}>1000</MenuItem>
           <MenuItem value={1500}>1500</MenuItem>
           <MenuItem value={2000}>2000</MenuItem>
-          <MenuItem value={3000}>3000</MenuItem>
+          <MenuItem value={3000}>3000</MenuItem> 
           <MenuItem value={5000}>5000</MenuItem>
         </Select>
       </FormControl>

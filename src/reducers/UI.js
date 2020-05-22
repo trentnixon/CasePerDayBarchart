@@ -11,7 +11,12 @@ const InitialState ={
 	Search:{
 		Min:5000,
 		Max:10000000,
-		Country:"Australia"
+		Country:"Australia",
+		Continent:"",
+		Region:"*"
+	},
+	Filters:{
+		Continent:[]
 	},
 	UI:{
 		SetMax:undefined,
@@ -74,6 +79,24 @@ const UI = (state=InitialState, action) =>{
 			
 			case "SETNEGITIVECOUNTRY":{
 				return {...state, NegativeContries:action.payload}
+				// eslint-disable-next-line 
+				break
+			}
+			// Store Filter Search
+			case "FILTER_SEARCH_Continent":{
+				return {...state, Search:{...state.Search, Continent:action.payload}}
+				// eslint-disable-next-line 
+				break
+			}
+			case "FILTER_SEARCH_REGION":{
+				return {...state, Search:{...state.Search, Region:action.payload}}
+				// eslint-disable-next-line 
+				break
+			}
+
+			// Filters
+			case "STORE_Continent":{
+				return {...state, Filters:{...state.Filters, Continent:action.payload}}
 				// eslint-disable-next-line 
 				break
 			}

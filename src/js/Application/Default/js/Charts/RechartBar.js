@@ -14,8 +14,7 @@ const Color = (val, max)=>{
 
 const ReChartBar = (props)=>{
     const MaxSet = useSelector(state => state.UI)
-   
-      useEffect(()=>{ },[])
+    useEffect(()=>{ },[])
     return(
         <ResponsiveContainer width="100%" height={300} >
             <BarChart
@@ -24,7 +23,7 @@ const ReChartBar = (props)=>{
                 }}
              >
             <XAxis 
-                dataKey="name" 
+                dataKey="name"  
                 type="category" 
                 tick={true}
                 padding={{ top: 10 }} 
@@ -35,7 +34,6 @@ const ReChartBar = (props)=>{
                 scale="linear"
                  domain={[0, MaxSet.UI.MaxTrue]}  
                  minTickGap={10} 
-     
             />
     
             <Tooltip />

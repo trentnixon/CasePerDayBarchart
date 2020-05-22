@@ -1,13 +1,19 @@
 import React, {useEffect} from 'react'
 import { useSelector, } from 'react-redux'
+// Move these
 import MaxBtn from "./LIVE_MaxBtn";
 import Select from "./LIVE_Select";
+
+import SelectContinent from "../Inputs/SelectContinent"
+
+
 import { Color } from "../../../../../../actions/actions"
 import * as d3 from "d3-selection"
 
 
 const Controls = (props)=>{
     const MaxSet = useSelector(state => state.UI.UI.SetMax)
+    
 
     const makeKey = (max) => {
 
@@ -21,7 +27,7 @@ const Controls = (props)=>{
         let height = 30
     
         // d3.select("#keyContainer svg").remove()
-
+ 
         let keySvg = d3.select("#keyContainer").append("svg")
             .attr("width", keyWidth)
             .attr("height", "40px")
@@ -76,6 +82,11 @@ const Controls = (props)=>{
                     <p>Sort by</p>
                     <Select/>
                </div>
+               <div className="sml">
+                    <p>Group by</p>
+                    <SelectContinent/>
+               </div>
+                    
                <div className="lrg">
                     <p>Bar colour key</p>
                     <div id="keyContainer"></div>

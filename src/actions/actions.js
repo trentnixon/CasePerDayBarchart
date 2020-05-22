@@ -9,7 +9,7 @@ export function Color(val, max){
   
   let color = scaleSequentialLog(interpolateOrRd).domain([1, max])
 
-  console.log(val, max, color)
+  //console.log(val, max, color)
   return color(val);
 }
 
@@ -45,7 +45,7 @@ export function TrackOpen(i,a){
         //console.log(a,  a.indexOf(i))
 
       let index = a.indexOf(i);
-      if(index=== -1){
+      if(index=== -1){ 
             a.push(i)
       }
       else{
@@ -60,22 +60,21 @@ export function OrderBySelect(Filtered, Data,By){
 
   let SelectBy=[]
 
+  console.log(Filtered,Data );
  switch(By) {
   case '1':
       // code block
-      SelectBy = _.orderBy(Filtered, [0], ['asc', 'desc']);
+      SelectBy = _.orderBy(Filtered, ['Name'], ['asc', 'desc']);
    break; 
   case '2':
       // code block
-      SelectBy = _.orderBy(Filtered, [1], ['desc', 'asc']);
+      SelectBy = _.orderBy(Filtered, ['Total'], ['desc', 'asc']);
    break;
   case '3':
       // code block
-      SelectBy = _.orderBy(Filtered, [1], ['asc', 'desc']);
+      SelectBy = _.orderBy(Filtered, ['Total'], ['asc', 'desc']);
    break;
-
   }
-
   //console.log(SelectBy);
 
   store.dispatch({ type:"STORE_FILTERED", payload:SelectBy});

@@ -32,7 +32,7 @@ export default function SimpleSelect(props) {
                     }
                     else{
                         return false;
-                    }
+                    } 
                 })
             }
         </Select>

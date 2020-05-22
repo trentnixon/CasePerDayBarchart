@@ -1,6 +1,7 @@
 import axios from 'axios';
 import store from "../store/store";
 var _ = require('lodash');
+
 export function FetchData(){
 
     /** Set Properties */
@@ -13,55 +14,61 @@ export function FetchData(){
         this.init=[  
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_total_ecdc.json',
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily_ecdc.json',
-            'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/negative_case_countries.json'
-
+            'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/negative_case_countries.json',
+            '/assets/json/country-features.json'
         ]
         
         axios.all(this.init.map(l => axios.get(l)))
         .then(axios.spread(function (...res) {
-             
-               let FinalTotals=[], FilteredTotals=[], FullPicture=[], SelectBy;
-               let Total =res[0].data[res[0].data.length-1]
+
+               let FinalTotals=[], FullPicture=[];
+
+               let Total =res[0].data[res[0].data.length-1];
+
                Object.keys(Total).map((c,i)=>{
-                        if(Total[c]>this.max){ FinalTotals.push([c,Total[c]]) } 
-                        return true;
+                        if(Total[c]>this.max){  
+                            FinalTotals.push(
+                                {
+                                    continent: res[3].data[c].continent,
+                                    region:res[3].data[c].region,
+                                    income_group:res[3].data[c].income_group,
+                                    economy:res[3].data[c].economy,
+                                    Name:c,
+                                    Total:Total[c],
+                                }
+                            )
+                        }
+                    return true;
                 })
               
-                FilteredTotals = FilterUnwanted(FinalTotals,this.min,this.max) 
-               
-                // change Load Order
-                // [0] = Alphbetical , [1] = by Numbers max-min
-                FilteredTotals = _.orderBy(FilteredTotals, [1], ['desc', 'asc']);
-                FullPicture = createDataSet(FilteredTotals, res[1].data)
 
+                // change Load Order
+                // ['Name'] = Alphbetical , ['Total'] = by Numbers max-min
+                FinalTotals = _.orderBy(FinalTotals, ['Total'], ['desc', 'asc']);
+                
+                FullPicture = createDataSet(FinalTotals, res[1].data)
+
+                FinalTotals.map((T,i)=>{ T.data = FullPicture[i] })
+         
                 store.dispatch({ type:"STORE_UPDATED", payload:Total.date });
-                store.dispatch({ type:"STORE_FILTERED", payload:FilteredTotals});
+                store.dispatch({ type:"STORE_FILTERED", payload:FinalTotals});
                 store.dispatch({ type:"STORE_FULLPICTURE", payload: FullPicture} );
                 store.dispatch({ type:"SETNEGITIVECOUNTRY", payload:res[2].data});
                 store.dispatch({ type:"UI_SET", payload:true });
                 store.dispatch({ type:"STORE_DATA", payload:res });
                 store.dispatch({ type:"STORE_MIN", payload:this.max });
-
+               
             }.bind(this)) 
         )
         .catch(function (error) { console.log(error); });
     }
 }
 
-const  FilterUnwanted = (data, Min, Max) => {
 
-    let Find=[], Forget=["Total","Cruise Ship"], Include=["Australia"];
-    data.map((item,i)=>{
-        if( Forget.indexOf(item[0]) !== 0 || Include.indexOf(item[0]) === 0 )  {   return( Find.push(item) )  }
-        else{ return false; }
-    })
-    return Find;
-}
-
-
+// TODO : Clean this up
 export const createDataSet = (Countrys, Data) => {
     let Cases=[];
-    let FullPicture=[]
+   // let FullPicture=[]
     let Categories=[]
     let MaxCases=0;
 
@@ -74,21 +81,17 @@ export const createDataSet = (Countrys, Data) => {
         Rechart=[]
 
         Data.map((c,i)=>{ 
-            //console.log(country[0])
-            if( c[country[0]] > MaxCases) { MaxCases = c[country[0]] }
+            //console.log(c[country['Name']], c[country['Total']])
+            if( c[country['Name']] > MaxCases) { MaxCases = c[country['Name']] }
 
-
-            Cases.push(c[country[0]]); Categories.push(c["date"]);
-            Rechart.push({
-                name:FormatDate(c["date"]),
-                Cases:c[country[0]]
-            })
-
+                Cases.push(c[country['Name']]); Categories.push(c["date"]);
+                Rechart.push({
+                    name:FormatDate(c["date"]),
+                    Cases:c[country['Name']]
+                })
             return true;
         })
-
-        
-        FullPicture.push([Cases, Categories])
+        //FullPicture.push([Cases, Categories])
         ReChartFull.push(Rechart)
         return true;
     })
@@ -99,8 +102,10 @@ export const createDataSet = (Countrys, Data) => {
  
     //console.log(FullPicture);
 
-    return FullPicture 
+    return ReChartFull 
 }
+
+
 
 const FormatDate = (str) => {
     // Formatt Date

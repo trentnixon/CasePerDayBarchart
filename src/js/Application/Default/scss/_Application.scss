@@ -149,6 +149,22 @@
         align-content: center;
        
 
+        .GroupContainer{
+            width: 100%;  
+            h1{
+                    font-size: 26px;
+                    line-height: 20px;
+                    color: #c70000;
+                    border: none;
+                    margin: 0 0 20px 15px;
+                    padding: 0;
+                    -webkit-font-smoothing: antialiased;
+                    font-family: $FontFamilyHeaderRegular;
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+            } 
+        }
 
         .FullChartList {
             display: flex;
@@ -175,8 +191,6 @@
                     padding: 0;
                     -webkit-font-smoothing: antialiased;
                     font-family: $FontFamilyHeaderRegular;
-
-                    //min-height: 40px;
                     display: flex;
                     justify-content: flex-start;
                     flex-direction: column;

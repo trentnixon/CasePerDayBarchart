@@ -18,7 +18,7 @@ const Select = ()=>{
                 </select>
     )
 }
-
+ 
 export default Select;
 
 //  <label htmlFor="select">Sort By :</label>

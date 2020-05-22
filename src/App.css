@@ -1024,6 +1024,20 @@ blockquote {
     justify-content: flex-start;
     align-items: stretch;
     align-content: center; }
+    #Application .ChartContainer .GroupContainer {
+      width: 100%; }
+      #Application .ChartContainer .GroupContainer h1 {
+        font-size: 26px;
+        line-height: 20px;
+        color: #c70000;
+        border: none;
+        margin: 0 0 20px 15px;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Guardian Headline Regular";
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column; }
     #Application .ChartContainer .FullChartList {
       display: flex;
       flex-direction: row;
