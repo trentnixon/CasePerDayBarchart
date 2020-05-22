@@ -1,42 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import ReChartBar from "../../Charts/RechartBar";
+import ReChartBar from "../../Charts/BarChart_Recharts";
 import * as d3 from 'd3-array'
-const Rechart = (props)=>{
-
-    const numberWithCommas = (x) => { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
-   
-    useEffect(()=>{},[])
-
-    return(
-        <div className="ChartPod">
-            <h2>{props.Country} ({numberWithCommas(props.Cases)})</h2>
-            <ReChartBar  {... props} /> 
-        </div>
-    )
-}
-
+var _ = require('lodash');
 const ApplicationShell = (props)=>{
-    const [Group, setGroup] = useState(false)
-   // const [Grouping, setGrouping] = useState()
+const [Group, setGroup] = useState(false)
+
     useEffect(()=>{
         console.log("Init Application layout");
-        console.log(props.Search.Continent);
-
-
         if(props.Search.Continent.length !== 0 ){
-            let NewGrouping
+            // Group By Selected: 
             setGroup(true)
-            NewGrouping = d3.group(props.Filtered, d => d[props.Search.Continent])
-            setGroup(NewGrouping);
-
+            setGroup( _.orderBy(Array.from(d3.group(props.Filtered, d => d[props.Search.Continent])), [0], ['asc', 'desc']));
+            console.log(Group);
         }else{
+            // reset Layout
             setGroup(false)
         }
-
     },[props.Search, props.Filtered])
 
-    if(props.Filtered !== false){
 
+    if(props.Filtered !== false){
         if(Group === false){
             return(  
                 <div className="ChartContainer">
@@ -61,8 +44,9 @@ const ApplicationShell = (props)=>{
         else{
             return(
                 <div className="ChartContainer">
-            
                     {
+                      
+
                         Array.from(Group, ([key, values]) => {
                             console.log(key, values)
                             return(
@@ -70,6 +54,7 @@ const ApplicationShell = (props)=>{
                                     <h1>{key}</h1>
                                     <div className="FullChartList">
                                         {
+                                          
                                             values.map((c,i)=>{
                                         
                                                 return(
@@ -86,11 +71,9 @@ const ApplicationShell = (props)=>{
                                 </div>
                             )
                         })
-                      
                     }
                 </div>
             )
-             
         }
     }
     else{
@@ -99,6 +82,17 @@ const ApplicationShell = (props)=>{
 }
 export default ApplicationShell;
 
-/**
- *   
- */
+
+// Chart Display container
+const Rechart = (props)=>{
+    const numberWithCommas = (x) => { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+   
+    useEffect(()=>{},[])
+
+    return(
+        <div className="ChartPod">
+            <h2>{props.Country} ({numberWithCommas(props.Cases)})</h2>
+            <ReChartBar  {... props} /> 
+        </div>
+    )
+}

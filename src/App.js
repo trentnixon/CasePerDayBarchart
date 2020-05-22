@@ -2,13 +2,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, } from 'react-redux'
 
-//import ReactGA from 'react-ga';
-
 import LoadingScreen from "./js/pages/Loading";
 import Main from "./js/pages/Main";
 
 // Import Functions
-//import { connect } from "react-redux";
 import { FetchData } from "./actions/Load";
 
 // Include CSS

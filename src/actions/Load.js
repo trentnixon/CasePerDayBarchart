@@ -21,9 +21,7 @@ export function FetchData(){
         axios.all(this.init.map(l => axios.get(l)))
         .then(axios.spread(function (...res) {
 
-               let FinalTotals=[], FullPicture=[];
-
-               let Total =res[0].data[res[0].data.length-1];
+               let FinalTotals=[], FullPicture=[], Total =res[0].data[res[0].data.length-1];
 
                Object.keys(Total).map((c,i)=>{
                         if(Total[c]>this.max){  
@@ -63,6 +61,10 @@ export function FetchData(){
         .catch(function (error) { console.log(error); });
     }
 }
+
+
+
+
 
 
 // TODO : Clean this up

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 // Full List
 
-import CasesByDayFullList from "./js/Sections/LIVE/LIVE_CasesPerDayFullList";
-import Header from "./js/Sections/LIVE/LIVE_Header"
-import Controls from "./js/Sections/LIVE/LIVE_Controls"
-import Footer from "./js/Sections/LIVE/LIVE_FOOTER"
+import CasesByDayFullList from "./js/Sections/Structure/Application";
+import Header from "./js/Sections/Structure/Header"
+import Controls from "./js/Sections/Inputs/ControlsHub"
+import Footer from "./js/Sections/Structure/Footer"
 const Application = (props)=>{
   useEffect(()=>{ console.log("Init Application")},[])
   return(
@@ -16,7 +16,7 @@ const Application = (props)=>{
           <Footer />
       </div>
     </div>
-  ) 
+  )  
 } 
 // TODO 
-export default  Application;   
+export default  Application;    

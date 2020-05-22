@@ -1,20 +1,13 @@
 import React, {useEffect} from 'react'
 import { useSelector, } from 'react-redux'
-// Move these
-import MaxBtn from "./LIVE_MaxBtn";
-import Select from "./LIVE_Select";
-
-import SelectContinent from "../Inputs/SelectContinent"
-
 
 import { Color } from "../../../../../../actions/actions"
 import * as d3 from "d3-selection"
 
 
 const Controls = (props)=>{
-    const MaxSet = useSelector(state => state.UI.UI.SetMax)
+    const MaxSet = useSelector(state => state.UI.UI.SetMax) 
     
-
     const makeKey = (max) => {
 
         // Needs to be able to select a div with id keyContainer
@@ -24,7 +17,7 @@ const Controls = (props)=>{
 
         let keySquare = keyWidth / keyVals.length;
         let barHeight = 15    
-        let height = 30
+        let height = 30 
     
         // d3.select("#keyContainer svg").remove()
  
@@ -66,33 +59,12 @@ const Controls = (props)=>{
                     .attr("x", function(d,i) { return newSquare * i})   
 
             })
-
-
     } 
 
     useEffect(()=>{  makeKey(MaxSet); },[MaxSet])
 
     return(
-            <div className="Controls">
-                <div className="sml">
-                    <p>&nbsp;</p>
-                    <MaxBtn setMax={props.MaxTrue} Max={props.SetMax}/>
-                </div>
-                <div className="sml">
-                    <p>Sort by</p>
-                    <Select/>
-               </div>
-               <div className="sml">
-                    <p>Group by</p>
-                    <SelectContinent/>
-               </div>
-                    
-               <div className="lrg">
-                    <p>Bar colour key</p>
-                    <div id="keyContainer"></div>
-                </div>
-                    
-            </div>
+        <div id="keyContainer"></div>
     )
 }
 export default Controls
