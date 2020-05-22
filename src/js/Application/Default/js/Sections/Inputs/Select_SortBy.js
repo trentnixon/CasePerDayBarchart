@@ -6,8 +6,7 @@ const Select = ()=>{
     const Data = useSelector(state => state.UI)
 
     const onChange=(e)=>{
-        console.log(e.target.value, Data.Data[1].data);
-        OrderBySelect(Data.Filtered,Data.Data[1].data,e.target.value)
+         OrderBySelect(Data.Filtered,Data.Data[1].data,e.target.value)
     }
  
     return(
@@ -20,5 +19,3 @@ const Select = ()=>{
 }
  
 export default Select;
-
-//  <label htmlFor="select">Sort By :</label>

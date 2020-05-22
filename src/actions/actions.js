@@ -60,7 +60,7 @@ export function OrderBySelect(Filtered, Data,By){
 
   let SelectBy=[]
 
-  console.log(Filtered,Data );
+  //console.log(Filtered,Data );
  switch(By) {
   case '1':
       // code block

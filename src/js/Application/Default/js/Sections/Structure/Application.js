@@ -11,7 +11,6 @@ const [Group, setGroup] = useState(false)
             // Group By Selected: 
             setGroup(true)
             setGroup( _.orderBy(Array.from(d3.group(props.Filtered, d => d[props.Search.Continent])), [0], ['asc', 'desc']));
-            console.log(Group);
         }else{
             // reset Layout
             setGroup(false)
@@ -45,10 +44,7 @@ const [Group, setGroup] = useState(false)
             return(
                 <div className="ChartContainer">
                     {
-                      
-
                         Array.from(Group, ([key, values]) => {
-                            console.log(key, values)
                             return(
                                 <div className="GroupContainer" key={key}>
                                     <h1>{key}</h1>

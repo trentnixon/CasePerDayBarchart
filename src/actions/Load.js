@@ -48,6 +48,7 @@ export function FetchData(){
 
                 FinalTotals.map((T,i)=>{ T.data = FullPicture[i] })
          
+                // Dispatch the Data to the Reducer
                 store.dispatch({ type:"STORE_UPDATED", payload:Total.date });
                 store.dispatch({ type:"STORE_FILTERED", payload:FinalTotals});
                 store.dispatch({ type:"STORE_FULLPICTURE", payload: FullPicture} );
@@ -64,13 +65,9 @@ export function FetchData(){
 
 
 
-
-
-
 // TODO : Clean this up
 export const createDataSet = (Countrys, Data) => {
     let Cases=[];
-   // let FullPicture=[]
     let Categories=[]
     let MaxCases=0;
 
@@ -83,9 +80,7 @@ export const createDataSet = (Countrys, Data) => {
         Rechart=[]
 
         Data.map((c,i)=>{ 
-            //console.log(c[country['Name']], c[country['Total']])
             if( c[country['Name']] > MaxCases) { MaxCases = c[country['Name']] }
-
                 Cases.push(c[country['Name']]); Categories.push(c["date"]);
                 Rechart.push({
                     name:FormatDate(c["date"]),
@@ -93,7 +88,6 @@ export const createDataSet = (Countrys, Data) => {
                 })
             return true;
         })
-        //FullPicture.push([Cases, Categories])
         ReChartFull.push(Rechart)
         return true;
     })
@@ -101,12 +95,8 @@ export const createDataSet = (Countrys, Data) => {
     store.dispatch({ type:"SETMAXCASENUM", payload:Math.round(MaxCases/1000)*1000 });
     //store.dispatch({ type:"SET_MAX", payload:undefined });
     store.dispatch({ type:"STORE_RECHART", payload:ReChartFull }); 
- 
-    //console.log(FullPicture);
-
     return ReChartFull 
 }
-
 
 
 const FormatDate = (str) => {
