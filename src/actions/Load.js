@@ -15,7 +15,7 @@ export function FetchData(){
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_total_ecdc.json',
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/confirmed_daily_ecdc.json',
             'https://interactive.guim.co.uk/2020/03/coronavirus-widget-data/negative_case_countries.json',
-            '/assets/json/country-features.json'
+            'https://interactive.guim.co.uk/embed/2020/03/corona-cases-global/assets/json/country-features.json'
         ]
         
         axios.all(this.init.map(l => axios.get(l)))
