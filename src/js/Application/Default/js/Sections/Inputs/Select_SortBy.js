@@ -1,12 +1,18 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import {OrderBySelect} from "../../../../../../actions/actions"
 // { useState,useEffect } , useDispatch
 const Select = ()=>{
-    const Data = useSelector(state => state.UI)
-
+    const STATE = useSelector(state => state.UI)
+    const dispatch = useDispatch()
     const onChange=(e)=>{
-         OrderBySelect(Data.Filtered,Data.Data[1].data,e.target.value)
+
+         OrderBySelect(
+            STATE.Data[STATE.Search.DataSet].Filtered, 
+            STATE.Data[STATE.Search.DataSet].Daily,  
+             e.target.value)
+             
+         dispatch({ type: 'SETREDRAWING' , payload:true});
     }
  
     return(

@@ -7,9 +7,8 @@ import * as d3 from "d3-selection"
 
 const Controls = (props)=>{
     const MaxSet = useSelector(state => state.UI.UI.SetMax) 
-    
     const makeKey = (max) => {
-
+ 
         // Needs to be able to select a div with id keyContainer
     
         const keyVals = [5, 50, 500, 5000, 50000];
@@ -19,7 +18,7 @@ const Controls = (props)=>{
         let barHeight = 15    
         let height = 30 
     
-        // d3.select("#keyContainer svg").remove()
+        d3.select("#keyContainer svg").remove()
  
         let keySvg = d3.select("#keyContainer").append("svg")
             .attr("width", keyWidth)
@@ -56,12 +55,11 @@ const Controls = (props)=>{
                     .attr("width", newWidth)
 
                 d3.selectAll(".keyLabel")
-                    .attr("x", function(d,i) { return newSquare * i})   
-
+                    .attr("x", function(d,i) { return newSquare * i})
             })
     } 
 
-    useEffect(()=>{  makeKey(MaxSet); },[MaxSet])
+    useEffect(()=>{   makeKey(MaxSet); },[props.DataSet])
 
     return(
         <div id="keyContainer"></div>

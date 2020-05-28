@@ -1,22 +1,28 @@
-import React, { useEffect } from 'react'
-import { useSelector, } from 'react-redux'
+import React, { useEffect,useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+
 // eslint-disable-next-line
 import { BarChart, Bar, Cell, XAxis, YAxis,ResponsiveContainer, Tooltip } from 'recharts';
 // eslint-disable-next-line
-import {scaleSequentialLog} from 'd3-scale'
-import {interpolateOrRd} from 'd3-scale-chromatic'
- 
+//import {scaleSequentialLog} from 'd3-scale'
+//import {interpolateOrRd} from 'd3-scale-chromatic'
+import { Color } from "../../../../../actions/actions";
 
-const Color = (val, max)=>{
+/*
+const FillColor = (val, max)=>{
     let color = scaleSequentialLog(interpolateOrRd).domain([1, max.UI.SetMax])
     return color(val);
 }
+*/
 
 const ReChartBar = (props)=>{
+
     const MaxSet = useSelector(state => state.UI)
-    useEffect(()=>{ },[])
+
+    useEffect(()=>{ console.log("DRAWING NEW GROUP");  },[])
     return(
         <ResponsiveContainer width="100%" height={300} >
+            
             <BarChart
                 data={props.Data}
                 margin={{ top: 5, right: 0, left: 0, bottom: 10,
@@ -42,13 +48,14 @@ const ReChartBar = (props)=>{
                 dataKey="Cases" 
                 fill="#c70000" 
                 isAnimationActive={false}
-                animationBegin={100} 
-                animationDuration={1000} 
-                animationEasing="ease-in-out"
+                //animationBegin={0} 
+                //animationDuration={500} 
+                //animationEasing="ease-in-out"
+                //onAnimationEnd={endAnimation}
             >
                 {
                     props.Data.map((entry, i) => {
-                        return <Cell key={i} fill={Color(entry.Cases, MaxSet)} />;
+                        return <Cell key={i} fill={Color(entry.Cases, MaxSet.UI.SetMax)} />;
                     })
                 }
             </Bar>

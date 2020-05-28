@@ -1,26 +1,26 @@
 import React ,  { useState,useEffect }from 'react';
 import { useDispatch} from 'react-redux'
  
-  export default function SimpleSelect(props) {
-  //const Search = useSelector(state => state.UI.Search)
-  //const Filters = useSelector(state => state.UI.Filters.Continent)
-  //const [Search, setSearch] = useState(props.Search)
-  //const [Continent, setContinent] = useState([])
-  //const [Regions, setRegions] = useState([])
- // const [SelectedContinent, setSelectedContinent] = useState('*')
-  //const [RegionState, setRegionState] = useState(true)
+import Redraw from "../Structure/Redrawing";
+const SimpleSelect = (props) => {
+
   const dispatch = useDispatch() 
 
   const [count, setCount] = useState(0)
 
+  const SetNewValue = (value)=>{
+    dispatch({ type: 'FILTER_SEARCH_Continent' , payload:value});
+  }
 
+  const onChange = event => {  
+    console.log("CHANGED GROUP")
 
-  const onChange = event => {  dispatch({ type: 'FILTER_SEARCH_Continent' , payload:event.target.value}); };
-
-  
+    dispatch({ type: 'SETREDRAWING' , payload:true});
+    dispatch({ type: 'FILTER_SEARCH_Continent' , payload:event.target.value});
+   //setTimeout(function(){SetNewValue(event.target.value)},500)    
+  };
 
   useEffect(() => { 
-   
     setCount(count+1)
   },[]);
 
@@ -36,3 +36,5 @@ import { useDispatch} from 'react-redux'
       </div>
   );
 }
+
+export default SimpleSelect

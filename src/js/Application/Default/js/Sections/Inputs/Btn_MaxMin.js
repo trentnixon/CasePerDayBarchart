@@ -19,6 +19,7 @@ const MaxBtn = (props)=>{
                 setLabel("Show max scale for each chart ")
         }
         dispatch({ type: 'SET_MAX' , payload:Payload});
+        dispatch({ type: 'SETREDRAWING' , payload:true});
     }
     useEffect(()=>{ },[]) 
     return (

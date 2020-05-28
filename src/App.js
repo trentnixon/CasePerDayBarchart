@@ -20,8 +20,9 @@ Content.start();
 
 const App = ()=>{
   const UI = useSelector(state => state.UI)
-  useEffect(()=>{ console.log("Init APP")},[UI.Data])
-  if(UI.Data.length !== undefined){
+  useEffect(()=>{  console.log("Init APP") },
+  [UI.UI.UI_SET])
+  if(UI.UI.UI_SET){
     return ( <Main {... UI} />);
   }else{
     return( <LoadingScreen UI={UI} /> )

@@ -1,37 +1,53 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useSelector, } from 'react-redux'
 import ReChartBar from "../../Charts/BarChart_Recharts";
 import * as d3 from 'd3-array'
+import Redrawing from "./Redrawing"
 var _ = require('lodash');
-const ApplicationShell = (props)=>{
-const [Group, setGroup] = useState(false)
-
+const ApplicationShell = ()=>{
+    const UI = useSelector(state => state.UI)
+    const [Group, setGroup] = useState(false)
+    const [count, setCount] = useState(0)
+    const [DataSet, setDataSet] = useState(UI.Data[UI.Search.DataSet]);
+  
     useEffect(()=>{
-        console.log("Init Application layout");
-        if(props.Search.Continent.length !== 0 ){
-            // Group By Selected: 
+        setDataSet(UI.Data[UI.Search.DataSet]);
+        console.log("Init Application");
+        if(UI.Search.Continent.length !== 0 ){
+            // Group By Selected:
+            console.log("ORDERBY GROUP CREATED");
             setGroup(true)
-            setGroup( _.orderBy(Array.from(d3.group(props.Filtered, d => d[props.Search.Continent])), [0], ['asc', 'desc']));
+            setGroup( _.orderBy(Array.from(d3.group(DataSet.Filtered, d => d[UI.Search.Continent])), [0], ['asc', 'desc']));
+           
+
         }else{
             // reset Layout
-            setGroup(false)
+            setGroup(false);
         }
-    },[props.Search, props.Filtered])
+        
+    },[UI.Search, DataSet.Filtered])  
 
-
-    if(props.Filtered !== false){
+    if( UI.UI.Redrawing === true){
+        return(  <Redrawing {... UI} /> )
+    }
+    else
+    if(DataSet.Filtered !== false){
         if(Group === false){
             return(  
                 <div className="ChartContainer">
                     <div className="FullChartList">
                             {
-                                props.Filtered.map((c,i)=>{
-                 
+                                DataSet.Filtered.map((c,i)=>{
                                     return(
                                         <Rechart 
                                                 key={i} 
                                                 Country={c.Name}
                                                 Cases={c.Total}
                                                 Data={c.data}
+                                                Limit = {DataSet.Filtered.length}
+                                                setCount={setCount}
+                                                count={count}
+
                                             /> 
                                     )
                                 })
@@ -52,7 +68,6 @@ const [Group, setGroup] = useState(false)
                                         {
                                           
                                             values.map((c,i)=>{
-                                        
                                                 return(
                                                     <Rechart 
                                                             key={i} 
@@ -82,13 +97,15 @@ export default ApplicationShell;
 // Chart Display container
 const Rechart = (props)=>{
     const numberWithCommas = (x) => { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
-   
-    useEffect(()=>{},[])
-
+    useEffect(()=>{},[props.Data])
     return(
         <div className="ChartPod">
             <h2>{props.Country} ({numberWithCommas(props.Cases)})</h2>
-            <ReChartBar  {... props} /> 
+            <ReChartBar  
+                count={props.count}
+                setCount={props.setCount}
+                {... props} 
+            /> 
         </div>
     )
 }

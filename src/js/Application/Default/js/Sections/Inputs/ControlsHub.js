@@ -2,13 +2,14 @@ import React, {useEffect} from 'react'
 // Selects
 import SelectGroupBy from "./SelectGroupBy"
 import SelectSortBy from "./Select_SortBy";
+import ChangeCategory from "./Select_Category";
 // Button
 import BtnMaxMin from "./Btn_MaxMin";
 // Key
 import ChartKey from "./ChartKey";
 
 const Controls = (props)=>{
-    useEffect(()=>{  },[])
+
     return(
             <div className="Controls">
                 <div className="sml">
@@ -16,16 +17,20 @@ const Controls = (props)=>{
                     <BtnMaxMin setMax={props.MaxTrue} Max={props.SetMax}/>
                 </div>
                 <div className="sml">
+                    <p>Category</p>
+                    <ChangeCategory/>
+               </div>
+                <div className="sml">
                     <p>Sort by</p>
                     <SelectSortBy/>
                </div>
                <div className="sml">
                     <p>Group by</p>
-                    <SelectGroupBy/>
+                    <SelectGroupBy/> 
                </div>
                <div className="lrg">
                     <p>Bar colour key</p>
-                    <ChartKey />
+                    <ChartKey {... props}/>
                 </div>
             </div>
     )

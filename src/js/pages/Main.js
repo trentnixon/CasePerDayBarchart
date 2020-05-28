@@ -5,6 +5,5 @@ import CasesByCountry from "../Application/Default/Default";
 const Application = (props)=>{
   useEffect(()=>{ console.log("Init Shell")},[])
   return( <CasesByCountry {... props}/>)
-}
-
-export default Application;   
+} 
+export default Application;     
