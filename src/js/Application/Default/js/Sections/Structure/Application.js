@@ -10,7 +10,7 @@ const ApplicationShell = ()=>{
     const [count, setCount] = useState(0)
     const [DataSet, setDataSet] = useState(UI.Data[UI.Search.DataSet]);
   
-    useEffect(()=>{
+    useEffect(()=>{ 
         setDataSet(UI.Data[UI.Search.DataSet]);
         console.log("Init Application");
         if(UI.Search.Continent.length !== 0 ){
@@ -47,6 +47,7 @@ const ApplicationShell = ()=>{
                                                 Limit = {DataSet.Filtered.length}
                                                 setCount={setCount}
                                                 count={count}
+                                                DataSet={UI.Search.DataSet}
 
                                             /> 
                                     )
@@ -74,6 +75,7 @@ const ApplicationShell = ()=>{
                                                             Country={c.Name}
                                                             Cases={c.Total}
                                                             Data={c.data}
+                                                            DataSet={UI.Search.DataSet}
                                                         /> 
                                                 )
                                             })
@@ -97,13 +99,16 @@ export default ApplicationShell;
 // Chart Display container
 const Rechart = (props)=>{
     const numberWithCommas = (x) => { return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
-    useEffect(()=>{},[props.Data])
+    useEffect(()=>{
+        console.log(props)
+    },[props.Data])
     return(
         <div className="ChartPod">
             <h2>{props.Country} ({numberWithCommas(props.Cases)})</h2>
             <ReChartBar  
                 count={props.count}
                 setCount={props.setCount}
+                DataSet={props.DataSet}
                 {... props} 
             /> 
         </div>

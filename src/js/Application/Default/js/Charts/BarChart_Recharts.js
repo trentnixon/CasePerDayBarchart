@@ -19,7 +19,9 @@ const ReChartBar = (props)=>{
 
     const MaxSet = useSelector(state => state.UI)
 
-    useEffect(()=>{ console.log("DRAWING NEW GROUP");  },[])
+    useEffect(()=>{ 
+        //console.log("DRAWING NEW GROUP", props);  
+    },[])
     return(
         <ResponsiveContainer width="100%" height={300} >
             
@@ -45,17 +47,12 @@ const ReChartBar = (props)=>{
             <Tooltip />
            
             <Bar 
-                dataKey="Cases" 
-                fill="#c70000" 
+                dataKey={props.DataSet}
                 isAnimationActive={false}
-                //animationBegin={0} 
-                //animationDuration={500} 
-                //animationEasing="ease-in-out"
-                //onAnimationEnd={endAnimation}
             >
                 {
                     props.Data.map((entry, i) => {
-                        return <Cell key={i} fill={Color(entry.Cases, MaxSet.UI.SetMax)} />;
+                        return <Cell key={i} fill={Color(entry[props.DataSet], MaxSet.UI.SetMax)} />;
                     })
                 }
             </Bar>

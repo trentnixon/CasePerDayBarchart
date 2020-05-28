@@ -41,8 +41,8 @@ export function FetchData(){
                 DeathTotalsFinal =this.CreateDataObject(DeathTotals, GroupBy)
                 
                 // 2. Find Data
-                CasesFullPicture = createDataSet(FinalTotalsCases, CasesDaily)
-                DeathFullPicture = createDataSet(DeathTotalsFinal, DeathsDaily)
+                CasesFullPicture = createDataSet(FinalTotalsCases, CasesDaily, 'Cases')
+                DeathFullPicture = createDataSet(DeathTotalsFinal, DeathsDaily, 'Deaths')
 
                 // 3. Inclue Data in Object
                 FinalTotalsCases.map((T,i)=>{ T.data = CasesFullPicture[i] })
@@ -104,11 +104,11 @@ export function FetchData(){
 
 
 // TODO : Clean this up
-export const createDataSet = (Countrys, Data) => {
+export const createDataSet = (Countrys, Data, Category) => { 
     let Cases=[];
     let Categories=[]
     let MaxCases=0;
-
+    let Term;
     let Rechart=[]
     let ReChartFull =[]
     Countrys.map((country,i)=>{
@@ -116,13 +116,14 @@ export const createDataSet = (Countrys, Data) => {
         Cases=[];
         Categories=[];
         Rechart=[]
+        Term = [Category];
 
         Data.map((c,i)=>{ 
             if( c[country['Name']] > MaxCases) { MaxCases = c[country['Name']] }
                 Cases.push(c[country['Name']]); Categories.push(c["date"]);
                 Rechart.push({
                     name:FormatDate(c["date"]),
-                    Cases:c[country['Name']]
+                    [Term]:c[country['Name']]
                 })
             return true;
         })
