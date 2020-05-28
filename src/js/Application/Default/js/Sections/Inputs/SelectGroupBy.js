@@ -30,8 +30,7 @@ const SimpleSelect = (props) => {
             <option  value={''}>All</option>
             <option  value={'continent'}>Continent</option>
             <option  value={'region'}>Region</option>
-            <option  value={'income_group'}>Income Group</option>
-            <option  value={'economy'}>Economy</option>       
+            <option  value={'income_group'}>Income Group</option>  
           </select>
       </div>
   );
