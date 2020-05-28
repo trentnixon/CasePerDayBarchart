@@ -984,10 +984,10 @@ blockquote {
       height: 85px;
       z-index: 100;
       top: 0; }
-  @media only screen and (min-width: 71.25em) {
+  @media only screen and (min-width: 61.25em) {
     #Application .CategorySelector {
       padding-left: 160px !important; } }
-  @media only screen and (min-width: 81.25em) {
+  @media only screen and (min-width: 71.25em) {
     #Application .CategorySelector {
       padding-left: 240px !important; } }
   #Application .headline-container {
