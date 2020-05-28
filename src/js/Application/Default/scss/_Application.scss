@@ -76,12 +76,14 @@
 
 
         // Selector Media Query inline with Template
-        @media only screen  and  (min-width: 71.25em){
+        
+        @media only screen  and  (min-width: 61.25em){
             .CategorySelector{
                 padding-left: 160px !important;
             }
         }
-        @media only screen  and  (min-width: 81.25em){
+
+        @media only screen  and  (min-width: 71.25em){
             .CategorySelector{
                 padding-left: 240px !important;
             }
