@@ -11,14 +11,18 @@ const InitialState ={
 			FullPicture:false,
 			NegativeContries:'',
 			Daily:false,
-			ColorBase:"interpolateOrRd"
+			ColorBase:"interpolateOrRd",
+			Title:"New confirmed coronavirus cases per day",
+			Copy:"Showing the number of new cases per day, for countries with 1,000 or more cases in total. Total cases are shown in brackets. Days with negative values can occur when case figures are retrospectively adjusted, but negative values have been set to zero here to avoid confusion for the following countries:"
 		},
 		Deaths:{
 			Filtered:false,
 			FullPicture:false,
 			NegativeContries:'',
 			Daily:false,
-			ColorBase:"interpolateGnBu"
+			ColorBase:"interpolateGnBu",
+			Title:"New confirmed coronavirus deaths per day",
+			Copy:"Showing the number of new coronavirus deaths per day for countries with 50 or more deaths. Total deaths are shown in brackets. Days with negative values can occur when case figures are retrospectively adjusted, but negative values have been set to zero here to avoid confusion for the following countries:"
 		}
 	},
 	Search:{

@@ -36,8 +36,60 @@
      background: #FFF;
     position: relative;
     margin: 0 !important;
-    border-top: 1px solid #dcdcdc;
+    //border-top: 1px solid #dcdcdc;
     border-bottom: 1px solid #dcdcdc;
+
+
+
+/******************************************* */
+/*  Category selector, to be aligned with outer template */
+    .CategorySelector{
+        border-bottom: 1px solid #dcdcdc;
+        .CategoryContainer{
+            max-width: 620px;
+            position: relative;
+            background-color: #ebebeb;
+            padding: 25px 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            p{
+                font-weight: 800;
+                margin: 0 10px;
+            }
+            select{
+                padding: 0;
+                height: auto;
+            }
+        }
+        .CategoryContainer::before{
+            content: "";
+            border-left: 1px solid #dcdcdc;
+            left: -10px;
+            width: 4px;
+            position: absolute;
+            height: 85px;
+            z-index: 100;
+            top: 0;
+        }
+    }
+
+
+        // Selector Media Query inline with Template
+        @media only screen  and  (min-width: 71.25em){
+            .CategorySelector{
+                padding-left: 160px !important;
+            }
+        }
+        @media only screen  and  (min-width: 81.25em){
+            .CategorySelector{
+                padding-left: 240px !important;
+            }
+        }
+
+/******************************************* */
+
+
 
     .headline-container{
         padding: 1rem 0 ;
@@ -80,11 +132,52 @@
         z-index: 100;
 
         /* Global Control Styles*/
+          // Layout
+        .sml{
+            flex-basis: 20%;
+            padding: 0 2%;
+        }
+        .lrg{
+            flex-basis: 36%;
+            padding: 0 2%;
+            #keyContainer{
+                width: 100%;
+            }
+        }
+
+        // Added this here for ease of use... 
+        @media only screen  and (max-width : 1024px) {
+            flex-wrap: wrap;
+            .sml{
+                flex-basis: 20%;
+                padding: 0 1.5%;
+            } 
+            .lrg{
+                flex-basis: 30%;
+                padding: 0% 0.5% 0;
+            }
+        }
+        @media only screen  and (max-width : 800px) {
+            flex-wrap: wrap;
+            .sml{
+                flex-basis: 30%;
+                padding: 0 1.5%;
+            } 
+            .lrg{
+        
+                flex-basis: 90%;
+                padding: 2% 5% 0;
+            }
+        }
+
         div{
             p{
                 padding: 0;
                 margin: 0;
                 font-size: .8rem;
+                color: #767676;
+                font-size:14px;
+                font-family: 'Guardian Text Sans Web', Arial, 'Lucida Grande', sans-serif;
             }
 
             select{
@@ -116,39 +209,9 @@
         }
 
 
-        // Layout
-        .sml{
-            flex-basis: 16%;
-            padding: 0 2%;
-        }
-        .lrg{
-            flex-basis: 56%;
-            padding: 0 2%;
-            #keyContainer{
-                width: 100%;
-            }
-        }
-
-        .sml p, .lrg p {
-            color: #767676;
-            font-size:14px;
-            font-family: 'Guardian Text Sans Web', Arial, 'Lucida Grande', sans-serif;
-        }
+      
        
-        // Added this here for ease of use... 
-        @media only screen  and (max-width : 800px) {
-            flex-wrap: wrap;
-            .sml{
-                flex-basis: 40%;
-         
-                padding: 0 5%;
-            } 
-            .lrg{
-           
-                flex-basis: 90%;
-                padding: 2% 5% 0;
-            }
-        }
+       
        
     }
 

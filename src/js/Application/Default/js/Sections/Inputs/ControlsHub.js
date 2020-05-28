@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 // Selects
 import SelectGroupBy from "./SelectGroupBy"
 import SelectSortBy from "./Select_SortBy";
-import ChangeCategory from "./Select_Category";
+
 // Button
 import BtnMaxMin from "./Btn_MaxMin";
 // Key
@@ -16,10 +16,6 @@ const Controls = (props)=>{
                     <p>&nbsp;</p>
                     <BtnMaxMin setMax={props.MaxTrue} Max={props.SetMax}/>
                 </div>
-                <div className="sml">
-                    <p>Category</p>
-                    <ChangeCategory/>
-               </div>
                 <div className="sml">
                     <p>Sort by</p>
                     <SelectSortBy/>
